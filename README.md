@@ -2,9 +2,9 @@
 
 **Templates files to create new documents on a GUI based file explorer.**
 
-<center>
+<p align="center">
 <img src="https://raw.githubusercontent.com/UbioZur/templates/master/screenshots/right_click_menu.jpg" alt="Screenshot of the New Document menu on Thunar" title="Right Click menu example" />
-</center>
+</p>
 
 ### Disclaimer
 
