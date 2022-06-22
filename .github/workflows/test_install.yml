@@ -1,0 +1,85 @@
+## ---------------------------------------
+##  _   _ _     _        ______
+## | | | | |   (_)      |___  /
+## | | | | |__  _  ___     / / _   _ _ __
+## | | | | '_ \| |/ _ \   / / | | | | '__|
+## | |_| | |_) | | (_) |./ /__| |_| | |
+##  \___/|_.__/|_|\___/ \_____/\__,_|_|
+## 
+##   UbioZur / ubiozur.tk
+##        https://git.ubiozur.tk
+##
+## ---------------------------------------
+
+## ---------------------------------------
+##
+## Test Name : Test Install Script
+## Description : Test the install and uninstall of the template with the install.sh script, in dry and live mode.
+## Distribution: ubunty-latest (bare). Fedora-latest (Container)
+##
+## ---------------------------------------
+
+name: test-install-script
+
+on:
+  # Trigger the workflow on all push and pull request.
+  push:
+  pull_request:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+env:
+  # Setup a custom XDG_TEMPLATES_DIR env variable to avoid any issues with the repo name.
+  XDG_TEMPLATES_DIR: /home/runner/mytemplates
+
+jobs:
+  # Ubuntu workflow
+  on-ubuntu:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v3
+      
+      # Run the install script as dry-run
+      - name: Run install as dry-run
+        run: ./install.sh --dry-run
+      
+      # Run the install script
+      - name: Run install
+        run: ./install.sh
+        
+      # Run the dry-run version of the un-install script
+      - name: Run uninstall as dry-run
+        run: ./install.sh -u --dry-run
+        
+      # Run the un-install script
+      - name: Run uninstall
+        run: ./install.sh -u
+
+  # Fedora Workflow
+  on-fedora-latest:
+    runs-on: ubuntu-latest
+    container: 
+      image: fedora:latest
+
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v3
+
+      # Run the dry-run version of the install script
+      - name: Run install as dry-run
+        run: ./install.sh --dry-run --root-ok
+        
+      # Runs the install script
+      - name: Run install
+        run: ./install.sh --root-ok
+        
+      # Runs the dry-run version of the un-install script
+      - name: Run uninstall as dry-run
+        run: ./install.sh -u --dry-run --root-ok
+        
+      # Runs the un-install script
+      - name: Run uninstall
+        run: ./install.sh -u --root-ok
