@@ -22,9 +22,17 @@
 name: test-install-script
 
 on:
-  # Trigger the workflow on all push and pull request.
+  # Trigger the workflow on push and pull request that affect the install script.
   push:
+    paths:
+      - 'install.sh'
+      - 'Templates/bash/lib/loglib.sh'
+      - 'Templates/bash/lib/utilslib.sh'
   pull_request:
+    paths:
+      - 'install.sh'
+      - 'Templates/bash/lib/loglib.sh'
+      - 'Templates/bash/lib/utilslib.sh'
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
