@@ -18,8 +18,8 @@
 ## Script name : Simple Template script
 ## Description : A skeleton template for Very simple bash Scripts
 ## Dependencies: loglib.sh, utilslib.sh
-## Repository  : https://github.com/UbioZur-Tech/Templates
-## License     : https://github.com/UbioZur-Tech/Templates/LICENSE
+## Repository  : https://github.com/UbioZur/templates
+## License     : https://github.com/UbioZur/templates/LICENSE
 ##
 ## ---------------------------------------
 

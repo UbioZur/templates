@@ -18,8 +18,8 @@
 ## Script name : Install Template script
 ## Description : A skeleton template install script for bash
 ## Dependencies: loglib.sh, utilslib.sh
-## Repository  : https://github.com/UbioZur-Tech/Templates
-## License     : https://github.com/UbioZur-Tech/Templates/LICENSE
+## Repository  : https://github.com/UbioZur/templates
+## License     : https://github.com/UbioZur/templates/LICENSE
 ##
 ## ---------------------------------------
 
